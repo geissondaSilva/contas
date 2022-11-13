@@ -1,0 +1,19 @@
+<form [formGroup]="form">
+    <h3 mat-dialog-title>Nova conta</h3>
+    <mat-dialog-content>
+
+        <mat-form-field>
+            <mat-label>Nome</mat-label>
+            <input type="text" matInput formControlName="nome">
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Valor</mat-label>
+            <input type="number" matInput formControlName="valor">
+        </mat-form-field>
+    </mat-dialog-content>
+    <mat-dialog-actions fxLayout="row" fxLayoutAlign="end">
+        <button mat-button mat-dialog-close>Cancelar</button>
+        <button mat-raised-button (click)="salvar()" color="primary">Salvar</button>
+    </mat-dialog-actions>
+</form>

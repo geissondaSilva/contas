@@ -1,0 +1,31 @@
+<mat-card>
+    <mat-card-subtitle>Contas</mat-card-subtitle>
+    <mat-card-content>
+        <mat-list>
+            <mat-list-item *ngFor="let conta of contas">
+                <img matListAvatar src="https://nubank.com.br/images/nu-icon.png?v=2" alt="...">
+                <h3 matLine>{{conta.nome}}</h3>
+                <p matLine>{{conta.valor | currency}}</p>
+            </mat-list-item>
+        </mat-list>
+    </mat-card-content>
+    <mat-card-actions fxLayout="row" fxLayoutAlign="end">
+        <button (click)="novaConta()" mat-button color="primary">Adicionar nova conta</button>
+    </mat-card-actions>
+</mat-card>
+
+<mat-card>
+    <mat-card-subtitle>Cartões</mat-card-subtitle>
+    <mat-card-content>
+        <mat-list>
+            <mat-list-item>
+                <img matListAvatar src="https://nubank.com.br/images/nu-icon.png?v=2" alt="...">
+                <h3 matLine>Nubank</h3>
+                <p matLine>{{ 100 | currency }}</p>
+            </mat-list-item>
+        </mat-list>
+    </mat-card-content>
+    <mat-card-actions fxLayout="row" fxLayoutAlign="end">
+        <button (click)="novoCartao()" mat-button color="primary">Adicionar nova conta</button>
+    </mat-card-actions>
+</mat-card>

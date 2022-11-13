@@ -1,0 +1,47 @@
+<div fxLayout="column" class="container">
+
+    <form class="filtro" [formGroup]="form" fxLayout="row">
+        <button (click)="voltar()" type="button" mat-icon-button>
+            <mat-icon>chevron_left</mat-icon>
+        </button>
+        <div fxFlex fxLayoutGap="16px" fxLayoutAlign="center center">
+            <mat-select [style.width.px]="150" formControlName="mes">
+                <mat-option [value]="0">Janeiro</mat-option>
+                <mat-option [value]="1">Fevereiro</mat-option>
+                <mat-option [value]="2">Março</mat-option>
+                <mat-option [value]="3">Abril</mat-option>
+                <mat-option [value]="4">Maio</mat-option>
+                <mat-option [value]="5">Junho</mat-option>
+                <mat-option [value]="6">Julho</mat-option>
+                <mat-option [value]="7">Agosto</mat-option>
+                <mat-option [value]="8">Setembro</mat-option>
+                <mat-option [value]="9">Outubro</mat-option>
+                <mat-option [value]="10">Novembro</mat-option>
+                <mat-option [value]="11">Dezembro</mat-option>
+            </mat-select>
+            <mat-select [style.width.px]="80" formControlName="ano">
+                <mat-option *ngFor="let ano of anos" [value]="ano">{{ano}}</mat-option>
+            </mat-select>
+        </div>
+        <button (click)="avancar()" type="button" mat-icon-button>
+            <mat-icon>chevron_right</mat-icon>
+        </button>
+    </form>
+
+    <div fxFlex class="content">
+        <mat-list>
+            <ng-template ngFor let-dia [ngForOf]="dias">
+                <h3 matSubheader>{{dia.descricao}}</h3>
+                <mat-list-item *ngFor="let lancamento of dia.lancamentos">
+                    <img matListAvatar src="https://nubank.com.br/images/nu-icon.png?v=2" alt="...">
+                    <h3 matLine>{{lancamento.contaNome}}</h3>
+                    <p matLine>{{lancamento.valor| currency}}</p>
+                </mat-list-item>
+            </ng-template>
+        </mat-list>
+    </div>
+
+    <button (click)="novoLancamento()" class="fab-right" mat-fab color="primary">
+        <mat-icon>add</mat-icon>
+    </button>
+</div>

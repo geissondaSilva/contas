@@ -1,0 +1,29 @@
+<div fxLayout="column" class="main">
+  <mat-toolbar class="tollbar" color="primary">
+    <button (click)="sideNav.toggle()" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span fxFlex>My App</span>
+    <span class="example-spacer"></span>
+    <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+      <mat-icon>favorite</mat-icon>
+    </button>
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+      <mat-icon>share</mat-icon>
+    </button>
+  </mat-toolbar>
+  <div fxFlex fxLayout="row">
+    <mat-sidenav-container [style.width]="'100%'">
+      <mat-sidenav #sideNav mode="side" opened>
+        <mat-nav-list [style.width.px]="250">
+          <a mat-list-item routerLink="home">Home</a>
+          <a mat-list-item routerLink="lancamento">Lançamentos</a>
+        </mat-nav-list>
+      </mat-sidenav>
+
+      <mat-sidenav-content>
+        <router-outlet></router-outlet>
+      </mat-sidenav-content>
+    </mat-sidenav-container>
+  </div>
+</div>
