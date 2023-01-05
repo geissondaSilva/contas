@@ -4,4 +4,5 @@ export interface LancamentoResult {
     contaId: number;
     contaNome: string;
     valor: number;
+    categoria: string;
 }

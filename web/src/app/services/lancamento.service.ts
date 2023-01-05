@@ -1,7 +1,8 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { LancamentoDia } from '../models/lancamento-dia';
+import { LancamentoResult } from '../models/lancamento-result';
 import { Api } from './api';
 
 @Injectable({
@@ -15,43 +16,9 @@ export class LancamentoService extends Api {
     super('lancamento', http);
   }
 
-  public buscarLancamentos(ano: number, mes: number): Observable<LancamentoDia[]> {
-    return of([
-      {
-        descricao: 'Domingo 13',
-        lancamentos: [
-          {
-            id: 1,
-            dataHora: new Date(),
-            contaNome: 'Nubank',
-            valor: 100
-          },
-          {
-            id: 1,
-            dataHora: new Date(),
-            contaNome: 'Sicred',
-            valor: 800
-          }
-        ]
-      },
-      {
-        descricao: 'Segunda-feira 14',
-        lancamentos: [
-          {
-            id: 1,
-            dataHora: new Date(),
-            contaNome: 'Nubank',
-            valor: 100
-          },
-          {
-            id: 1,
-            dataHora: new Date(),
-            contaNome: 'Sicred',
-            valor: 800
-          }
-        ]
-      }
-    ] as LancamentoDia[]);
+  public buscarLancamentos(ano: number, mes: number) {
+    const params = new HttpParams().append('ano', ano).append('mes', mes);
+    return this.http.get<LancamentoResult[]>(this.url, {params: params});
   }
 
   public getAnos(): number[] {

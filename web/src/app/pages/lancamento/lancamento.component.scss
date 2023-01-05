@@ -15,3 +15,16 @@
 .content {
     overflow-y: auto;
 }
+
+.credito {
+    color: green;
+}
+
+.debito {
+    color: red;
+}
+
+.descricao {
+    display: flex!important;
+    gap: 16px;
+}

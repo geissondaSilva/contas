@@ -24,9 +24,7 @@ public class LancamentoController {
     @Transactional
     public Lancamento cadastrar(Lancamento lancamento, Long contaId) {
         Conta conta = em.find(Conta.class, contaId);
-        conta.setValor(conta.getValor() + lancamento.getValor());
         lancamento.setConta(conta);
-        em.merge(conta);
         em.persist(lancamento);
         em.flush();
         return lancamento;

@@ -15,7 +15,7 @@ export class LancamentoComponent implements OnInit {
 
   public form: FormGroup;
 
-  public dias: LancamentoDia[] = [];
+  public dias: LancamentoResult[] = [];
 
   public anos: number[];
 

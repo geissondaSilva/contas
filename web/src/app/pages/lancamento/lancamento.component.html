@@ -31,11 +31,14 @@
     <div fxFlex class="content">
         <mat-list>
             <ng-template ngFor let-dia [ngForOf]="dias">
-                <h3 matSubheader>{{dia.descricao}}</h3>
-                <mat-list-item *ngFor="let lancamento of dia.lancamentos">
+                <!-- <h3 matSubheader>{{dia.descricao}}</h3> -->
+                <mat-list-item>
                     <img matListAvatar src="https://nubank.com.br/images/nu-icon.png?v=2" alt="...">
-                    <h3 matLine>{{lancamento.contaNome}}</h3>
-                    <p matLine>{{lancamento.valor| currency}}</p>
+                    <h3 matLine>{{ dia.contaNome }} - {{dia.categoria}}</h3>
+                    <p class="descricao" matLine>
+                        <span [ngClass]="{'credito': dia.valor > 0, 'debito': dia.valor < 0}">{{dia.valor| currency}}</span>
+                        <span>{{dia.dataHora | date}}</span>
+                    </p>
                 </mat-list-item>
             </ng-template>
         </mat-list>

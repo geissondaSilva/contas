@@ -23,10 +23,6 @@ public class ContaController {
     @Transactional(Transactional.TxType.REQUIRES_NEW)
     public Conta cadastrar(Conta conta) {
         repository.salvar(conta);
-        Lancamento lancamento = new Lancamento();
-        lancamento.setConta(conta);
-        lancamento.setValor(conta.getValor());
-        lancamentoRepository.salvar(lancamento);
         return conta;
     }
 

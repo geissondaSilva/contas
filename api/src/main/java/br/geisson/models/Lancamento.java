@@ -14,6 +14,8 @@ import java.util.Date;
                         @ColumnResult(name = "datahora", type = Date.class),
                         @ColumnResult(name = "contaid", type = Long.class),
                         @ColumnResult(name = "contanome", type = String.class),
+                        @ColumnResult(name = "valor", type = Double.class),
+                        @ColumnResult(name = "categoria", type = String.class),
                 })
         })
 })
@@ -41,11 +43,4 @@ public class Lancamento implements EntityId<Long> {
     @Column(name = "data_hora")
     @Temporal(TemporalType.TIMESTAMP)
     private Date dataHora;
-
-    @PrePersist
-    public void prePersist() {
-        if (dataHora == null) {
-            dataHora = new Date();
-        }
-    }
 }
